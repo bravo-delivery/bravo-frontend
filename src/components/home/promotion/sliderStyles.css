@@ -1,0 +1,60 @@
+.swiper {
+  padding-left: 30px;
+  padding-bottom: 84px;
+}
+
+.swiper-slide {
+  width: 140px;
+  height: 250px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.swiper-button-prev {
+  left: calc(50% - 100px);
+}
+
+.swiper-button-next {
+  right: calc(50% - 100px);
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  top: calc(100% - 32px);
+  width: 52px;
+  height: 52px;
+  transition: filter 300ms ease-out;
+  border-width: 1.33px;
+  border-color: var(--foreground);
+  border-radius: 16px;
+  background-color: var(--foreground);
+}
+
+.swiper-button-next:active,
+.swiper-button-prev:active,
+.swiper-button-next:focus-visible,
+.swiper-button-prev:focus-visible,
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  filter: brightness(0.85);
+}
+
+.swiper-button-prev::after {
+  content: "" !important;
+  display: flex;
+  width: 100% !important;
+  height: 100% !important;
+  background-image: url("/images/icons/arrowInCircleLeft.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.swiper-button-next::after {
+  content: "" !important;
+  display: flex;
+  width: 100% !important;
+  height: 100% !important;
+  background-image: url("/images/icons/arrowInCircleRight.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+}
