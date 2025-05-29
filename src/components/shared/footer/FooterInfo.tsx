@@ -27,7 +27,7 @@ export default function FooterInfo() {
               {PHONE.replace(headerPhoneRegex, "$1-$2-$3-$4-$5")}
             </a>
             <a
-              href={`tel:+${PHONE.replace(/\D/g, "")}`}
+              href={`tel:+${PHONE_SECOND.replace(/\D/g, "")}`}
               target="_blank"
               rel="noopener noreferrer nofollow"
               aria-label="phone number"
@@ -36,7 +36,7 @@ export default function FooterInfo() {
               {PHONE_SECOND.replace(headerPhoneRegex, "$1-$2-$3-$4-$5")}
             </a>
             <a
-              href={`tel:+${PHONE.replace(/\D/g, "")}`}
+              href={`tel:+${PHONE_THIRD.replace(/\D/g, "")}`}
               target="_blank"
               rel="noopener noreferrer nofollow"
               aria-label="phone number"
@@ -45,7 +45,7 @@ export default function FooterInfo() {
               {PHONE_THIRD.replace(headerPhoneRegex, "$1-$2-$3-$4-$5")}
             </a>
             <a
-              href={`tel:+${PHONE.replace(/\D/g, "")}`}
+              href={`tel:+${PHONE_FOURTH.replace(/\D/g, "")}`}
               target="_blank"
               rel="noopener noreferrer nofollow"
               aria-label="phone number"
