@@ -3,6 +3,10 @@ import {
   EMAIL,
   ADDRESS_FIRST,
   ADDRESS_LINK_FIRST,
+  ADDRESS_SECOND,
+  PHONE_SECOND,
+  PHONE_THIRD,
+  PHONE_FOURTH,
 } from "@/constants/constants";
 import { headerPhoneRegex } from "@/regex/regex";
 import Image from "next/image";
@@ -35,9 +39,36 @@ export default function ContactsList() {
             target="_blank"
             rel="noopener noreferrer nofollow"
             aria-label="phone number"
-            className="text-16reg xl:text-18reg leading-[123%] lg:hover:text-black focus-visible:text-black transition duration-300 ease-in-out"
+            className="block mb-1 text-16reg xl:text-18reg leading-[123%] lg:hover:text-black focus-visible:text-black transition duration-300 ease-in-out"
           >
             {PHONE.replace(headerPhoneRegex, "$1-$2-$3-$4-$5")}
+          </a>
+          <a
+            href={`tel:+${PHONE.replace(/\D/g, "")}`}
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            aria-label="phone number"
+            className="block mb-1 text-16reg xl:text-18reg leading-[123%] lg:hover:text-black focus-visible:text-black transition duration-300 ease-in-out"
+          >
+            {PHONE_SECOND.replace(headerPhoneRegex, "$1-$2-$3-$4-$5")}
+          </a>
+          <a
+            href={`tel:+${PHONE.replace(/\D/g, "")}`}
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            aria-label="phone number"
+            className="block mb-1 text-16reg xl:text-18reg leading-[123%] lg:hover:text-black focus-visible:text-black transition duration-300 ease-in-out"
+          >
+            {PHONE_THIRD.replace(headerPhoneRegex, "$1-$2-$3-$4-$5")}
+          </a>
+          <a
+            href={`tel:+${PHONE.replace(/\D/g, "")}`}
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            aria-label="phone number"
+            className="block text-16reg xl:text-18reg leading-[123%] lg:hover:text-black focus-visible:text-black transition duration-300 ease-in-out"
+          >
+            {PHONE_FOURTH.replace(headerPhoneRegex, "$1-$2-$3-$4-$5")}
           </a>
         </div>
       </AnimatedListItem>
@@ -84,6 +115,7 @@ export default function ContactsList() {
             aria-label="address"
           >
             <p>{ADDRESS_FIRST}</p>
+            <p>{ADDRESS_SECOND}</p>
           </a>
         </div>
       </AnimatedListItem>
