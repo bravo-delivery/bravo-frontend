@@ -3,18 +3,15 @@ import { useState } from "react";
 import { useScroll, useMotionValueEvent } from "framer-motion";
 import Link from "next/link";
 import { Navbar, NavbarBrand, NavbarContent, NavbarItem } from "@heroui/react";
-import SecondaryButton from "../buttons/SecondaryButton";
 import Logo from "../logo/Logo";
 import CartButton from "./CartButton";
 import { menuList } from "@/helpers/menuList";
 import BurgerMenu from "./BurgerMenu";
 import BurgerMenuButton from "./BurgerMenuButton";
-import { PHONE } from "@/constants/constants";
-import { headerPhoneRegex } from "@/regex/regex";
-import PhoneIcon from "../icons/PhoneIcon";
 import CartModal from "../modals/cartModal/CartModal";
 import Backdrop from "../backdrop/Backdrop";
 import AnimatedWrapper from "../animatedWrappers/AnimatedWrapper";
+import Phones from "./Phones";
 
 interface HeaderProps {
   variant?: "white" | "black";
@@ -80,18 +77,7 @@ export default function Header({
                     variant={variant}
                     onClick={() => setIsCartModalOpened(true)}
                   />
-                  <a
-                    href={`tel:+${PHONE.replace(/\D/g, "")}`}
-                    target="_blank"
-                    rel="noopener noreferrer nofollow"
-                    aria-label="phone number"
-                    className="hidden lg:block"
-                  >
-                    <SecondaryButton className="hidden lg:flex gap-x-[14px] items-center w-[221px]">
-                      <PhoneIcon className="size-5" />
-                      {PHONE.replace(headerPhoneRegex, "$1-$2-$3-$4-$5")}
-                    </SecondaryButton>
-                  </a>
+                  <Phones />
                 </li>
               </NavbarContent>
             </AnimatedWrapper>
