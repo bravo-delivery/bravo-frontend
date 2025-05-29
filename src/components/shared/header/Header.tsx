@@ -82,8 +82,7 @@ export default function Header({
                     variant={variant}
                     onClick={() => setIsCartModalOpened(true)}
                   />
-                  <div className="relative">
-                    {" "}
+                  <div className="relative hidden lg:block">
                     <SecondaryButton
                       onClick={() => setIsPhonesOpened(!isPhonesOpened)}
                       className="hidden lg:flex gap-x-[14px] items-center w-[221px]"

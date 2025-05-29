@@ -65,7 +65,7 @@ export default function Phones({ isOpen, setIsOpen }: PhonesProps) {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="absolute right-0 p-4 mt-1 w-full rounded-[8px] shadow-inner-custom bg-white bg-opacity-[80%] z-50 text-black"
+            className="absolute right-0 p-4 mt-1 w-full rounded-[8px] shadow-md bg-white bg-opacity-[80%] z-50 text-black"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
