@@ -1,33 +1,49 @@
-import { useState, useEffect, useCallback, useRef } from "react";
+import {
+  useEffect,
+  useCallback,
+  useRef,
+  SetStateAction,
+  Dispatch,
+} from "react";
 import {
   PHONE,
   PHONE_SECOND,
   PHONE_THIRD,
   PHONE_FOURTH,
 } from "@/constants/constants";
-import SecondaryButton from "../buttons/SecondaryButton";
+
 import PhoneIcon from "../icons/PhoneIcon";
 import { headerPhoneRegex } from "@/regex/regex";
 import { AnimatePresence, motion } from "framer-motion";
 
-export default function Phones() {
-  const [isOpen, setIsOpen] = useState(false);
+interface PhonesProps {
+  isOpen: boolean;
+  setIsOpen: Dispatch<SetStateAction<boolean>>;
+}
+
+export default function Phones({ isOpen, setIsOpen }: PhonesProps) {
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const handleClickOutside = useCallback((event: MouseEvent) => {
-    if (
-      dropdownRef.current &&
-      !dropdownRef.current.contains(event.target as Node)
-    ) {
-      setIsOpen(false);
-    }
-  }, []);
+  const handleClickOutside = useCallback(
+    (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false);
+      }
+    },
+    [setIsOpen]
+  );
 
-  const handleKeyDown = useCallback((event: KeyboardEvent) => {
-    if (event.key === "Escape") {
-      setIsOpen(false);
-    }
-  }, []);
+  const handleKeyDown = useCallback(
+    (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsOpen(false);
+      }
+    },
+    [setIsOpen]
+  );
 
   useEffect(() => {
     if (isOpen) {
@@ -45,22 +61,11 @@ export default function Phones() {
   }, [isOpen, handleClickOutside, handleKeyDown]);
 
   return (
-    <div
-      className="relative hidden lg:block backdrop-blur-[16px]"
-      ref={dropdownRef}
-    >
-      <SecondaryButton
-        onClick={() => setIsOpen(!isOpen)}
-        className="hidden lg:flex gap-x-[14px] items-center w-[221px]"
-      >
-        <PhoneIcon className="size-5" />
-        {PHONE.replace(headerPhoneRegex, "$1-$2-$3-$4-$5")}
-      </SecondaryButton>
-
+    <div className="relative hidden lg:block" ref={dropdownRef}>
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="absolute right-0 p-4 mt-1 w-full rounded-[8px] border border-white z-50"
+            className="absolute right-0 p-4 mt-1 w-full rounded-[8px] shadow-inner-custom bg-white bg-opacity-[50%] z-50 text-black"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
@@ -73,7 +78,7 @@ export default function Phones() {
                 target="_blank"
                 rel="noopener noreferrer nofollow"
                 aria-label="phone number"
-                className="block xl:group-hover:text-green focus-visible:text-greenDark transition duration-300 ease-out"
+                className="font-semibold block xl:group-hover:text-green focus-visible:text-greenDark transition duration-300 ease-out"
               >
                 {PHONE.replace(headerPhoneRegex, "$1-$2-$3-$4-$5")}
               </a>
@@ -85,7 +90,7 @@ export default function Phones() {
                 target="_blank"
                 rel="noopener noreferrer nofollow"
                 aria-label="phone number"
-                className="block xl:group-hover:text-green focus-visible:text-greenDark transition duration-300 ease-out"
+                className="font-semibold block xl:group-hover:text-green focus-visible:text-greenDark transition duration-300 ease-out"
               >
                 {PHONE_SECOND.replace(headerPhoneRegex, "$1-$2-$3-$4-$5")}
               </a>
@@ -97,7 +102,7 @@ export default function Phones() {
                 target="_blank"
                 rel="noopener noreferrer nofollow"
                 aria-label="phone number"
-                className="block xl:group-hover:text-green focus-visible:text-greenDark transition duration-300 ease-out"
+                className="font-semibold block xl:group-hover:text-green focus-visible:text-greenDark transition duration-300 ease-out"
               >
                 {PHONE_THIRD.replace(headerPhoneRegex, "$1-$2-$3-$4-$5")}
               </a>
@@ -109,7 +114,7 @@ export default function Phones() {
                 target="_blank"
                 rel="noopener noreferrer nofollow"
                 aria-label="phone number"
-                className="block xl:group-hover:text-green focus-visible:text-greenDark transition duration-300 ease-out"
+                className="font-semibold block xl:group-hover:text-green focus-visible:text-greenDark transition duration-300 ease-out"
               >
                 {PHONE_FOURTH.replace(headerPhoneRegex, "$1-$2-$3-$4-$5")}
               </a>

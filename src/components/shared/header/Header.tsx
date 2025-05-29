@@ -12,6 +12,10 @@ import CartModal from "../modals/cartModal/CartModal";
 import Backdrop from "../backdrop/Backdrop";
 import AnimatedWrapper from "../animatedWrappers/AnimatedWrapper";
 import Phones from "./Phones";
+import SecondaryButton from "../buttons/SecondaryButton";
+import PhoneIcon from "../icons/PhoneIcon";
+import { headerPhoneRegex } from "@/regex/regex";
+import { PHONE } from "@/constants/constants";
 
 interface HeaderProps {
   variant?: "white" | "black";
@@ -25,6 +29,7 @@ export default function Header({
   const [isHeaderMenuOpened, setIsHeaderMenuOpened] = useState(false);
   const [isCartModalOpened, setIsCartModalOpened] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isPhonesOpened, setIsPhonesOpened] = useState(false);
   const toggleHeaderMenuOpen = () => setIsHeaderMenuOpened(!isHeaderMenuOpened);
 
   const { scrollY } = useScroll();
@@ -40,18 +45,18 @@ export default function Header({
         isBlurred={false}
         maxWidth="2xl"
         classNames={{ wrapper: "px-0" }}
-        className={`fixed top-0 left-0 z-10 justify-center w-dvw will-change-transform transition duration-700 ease-out  ${
+        className={`fixed top-0 left-0 z-10 justify-center w-dvw will-change-transform transition duration-700 ease-out ${
           variant === "white"
             ? `text-white ${
                 isScrolled
                   ? "bg-black bg-opacity-30 backdrop-blur-lg"
-                  : "bg-transparent bg-opacity-0 backdrop-blur-none"
+                  : "bg-transparent bg-opacity-0"
               }`
             : "text-black backdrop-blur-lg"
         }`}
       >
         <div className="container xl:max-w-[1280px] py-4 lg:py-6">
-          <div className="flex items-center  ">
+          <div className="flex items-center">
             <AnimatedWrapper>
               <NavbarBrand className="mr-10 xl:mr-20">
                 <Logo className="text-24bold leading-[120%]" />
@@ -59,7 +64,7 @@ export default function Header({
             </AnimatedWrapper>
             <AnimatedWrapper>
               {" "}
-              <NavbarContent className="hidden lg:flex gap-x-6 xl:gap-x-[44px]">
+              <NavbarContent className="hidden lg:flex gap-x-6 xl:gap-x-[44px] backdrop-blur-lg">
                 {menuList.map(({ title, link }, idx) => (
                   <NavbarItem
                     key={idx}
@@ -70,22 +75,34 @@ export default function Header({
                 ))}
               </NavbarContent>
             </AnimatedWrapper>
-            <AnimatedWrapper className="ml-auto mr-4 sm:mr-[60px] lg:mr-0">
+            <div className="ml-auto mr-4 sm:mr-[60px] lg:mr-0">
               <NavbarContent>
                 <li className="flex items-center gap-x-6 ">
                   <CartButton
                     variant={variant}
                     onClick={() => setIsCartModalOpened(true)}
                   />
-                  <Phones />
+                  <div className="relative">
+                    {" "}
+                    <SecondaryButton
+                      onClick={() => setIsPhonesOpened(!isPhonesOpened)}
+                      className="hidden lg:flex gap-x-[14px] items-center w-[221px]"
+                    >
+                      <PhoneIcon className="size-5" />
+                      {PHONE.replace(headerPhoneRegex, "$1-$2-$3-$4-$5")}
+                    </SecondaryButton>
+                    <Phones
+                      setIsOpen={setIsPhonesOpened}
+                      isOpen={isPhonesOpened}
+                    />
+                  </div>
                 </li>
               </NavbarContent>
-            </AnimatedWrapper>
+            </div>
             <BurgerMenuButton
               isHeaderMenuOpened={isHeaderMenuOpened}
               toggleHeaderMenuOpen={toggleHeaderMenuOpen}
             />
-
             <BurgerMenu
               isHeaderMenuOpened={isHeaderMenuOpened}
               setIsHeaderMenuOpened={setIsHeaderMenuOpened}

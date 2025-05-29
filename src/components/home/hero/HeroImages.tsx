@@ -31,10 +31,10 @@ export default function HeroImages() {
         className="absolute -z-20 top-[75px] xl:top-[-308px] left-[-228px] xl:left-[-248px] w-[593px] xl:w-[1099px] h-[601px] 
       xl:h-[1114px] "
       >
-        {/* <AnimatedWrapper
+        <AnimatedWrapper
           animation={fadeInAnimation({ delay: 1.6 })}
           className="relative -z-10 w-full h-full backdrop-blur-[16px] rounded-full bg-white bg-opacity-[12%] shadow-inner-custom"
-        ></AnimatedWrapper> */}
+        ></AnimatedWrapper>
         <AnimatedWrapper
           animation={fadeInAnimation({ scale: 0.8, delay: 1.6 })}
           className="xl:hidden absolute -z-10 top-[244px] right-[-38px] w-[100px] h-auto"
