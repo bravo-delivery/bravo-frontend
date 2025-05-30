@@ -32,7 +32,7 @@ export default function DishModal({
   if (!dish) {
     return null;
   }
-  const { id, image, title, price, weight, calories, description } = dish;
+  const { id, image, title, price, weight, description } = dish;
 
   const isDishInCart = cartItems.find((cartItem) => cartItem.id === id);
 
@@ -63,9 +63,9 @@ export default function DishModal({
             <p className="mb-2 lg:text-16reg leading-[123%]">
               Вага:&nbsp;{weight}&nbsp;г
             </p>
-            <p className="mb-5 lg:mb-8 lg:text-16reg leading-[123%]">
+            {/* <p className="mb-5 lg:mb-8 lg:text-16reg leading-[123%]">
               Калорійність:&nbsp;{calories}&nbsp;ккал
-            </p>
+            </p> */}
             <p className="mb-6 lg:mb-9 text-12light lg:text-14light leading-[123%]">
               {description}
             </p>
