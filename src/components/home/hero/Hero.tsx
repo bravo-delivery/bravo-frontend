@@ -29,9 +29,7 @@ export default function Hero() {
             animation={fadeInAnimation({ x: -50 })}
             className="max-w-[321px] xl:max-w-[510px] mb-6"
           >
-            <PageTitle>
-              Смакуй нешкідливе – замовляй смачну їжу вже зараз!
-            </PageTitle>
+            <PageTitle>Cвідомий фастфуд нового покоління</PageTitle>
           </AnimatedWrapper>
           <AnimatedWrapper animation={fadeInAnimation({ y: 30 })}>
             <p className="max-w-[300px] xl:max-w-[460px] mb-12 text-white">
@@ -43,16 +41,16 @@ export default function Hero() {
               href="/menu/all-dishes"
               className="block w-full max-w-[326px] mx-auto md:mx-0"
             >
-              <MainButton className="w-full">Зробити замовлення</MainButton>
+              <MainButton className="w-full">Замовляй</MainButton>
             </Link>
           </AnimatedWrapper>
         </div>
         <AnimatedWrapper
           animation={fadeInAnimation({ x: 30, delay: 0.8 })}
           as="p"
-          className="md:max-w-[225px] md:mt-auto text-20bold xl:text-32bold leading-[123%] text-white uppercase text-center md:text-left"
+          className="max-w-[245px] xl:max-w-[225px] md:mt-auto mx-auto md:mx-0 text-20bold xl:text-32bold leading-[123%] text-white uppercase text-center md:text-left"
         >
-          Швидка доставка до 30 хв нешкідливих страв для вас!
+          Швидка доставка до 30 хв
         </AnimatedWrapper>
       </div>
     </section>
