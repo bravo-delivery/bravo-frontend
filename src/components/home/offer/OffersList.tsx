@@ -18,7 +18,7 @@ export default function OffersList() {
     },
     {
       subtitle: "Безкоштовна доставка",
-      description: "Якщо ви оплачуєте готівкою",
+      description: "Від замовлення на суму 480 грн",
       quantity: "90%",
       text: "Клієнтів використовують це",
     },
