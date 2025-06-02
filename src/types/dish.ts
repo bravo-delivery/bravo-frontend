@@ -5,5 +5,5 @@ export interface Dish {
   price: number;
   calories: number;
   weight: number;
-  image: { url: string; alt: string };
+  image: { url: string; alt: string; focalPoint: { x: number; y: number } };
 }

@@ -71,6 +71,10 @@ export const GET_ALL_DISHES = `query GetAllDishes {
       image {
         url
         alt
+           focalPoint {
+          x
+          y
+        }
       }
     }
   }
@@ -79,6 +83,10 @@ export const GET_ALL_DISHES = `query GetAllDishes {
     image {
       alt
       url
+         focalPoint {
+          x
+          y
+        }
     }
     id
     description

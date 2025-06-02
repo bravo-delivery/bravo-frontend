@@ -49,6 +49,11 @@ export default function DishModal({
             alt={image.alt}
             sizes="100vw"
             fill
+            style={{
+              objectPosition: `${image.focalPoint.x * 100}% ${
+                image.focalPoint.y * 100
+              }%`,
+            }}
             className="relative -z-10 object-cover"
           />
         </div>
